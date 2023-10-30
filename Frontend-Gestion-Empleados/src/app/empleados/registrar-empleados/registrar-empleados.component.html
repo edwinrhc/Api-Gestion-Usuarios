@@ -1,0 +1,41 @@
+<div class="col-md-6 offset-md-3 my-4">
+  <h3 class="text-center">Registro de Empleado</h3>
+  <form (ngSubmit)="onSubmit()" action="">
+    <div class="form-group" [ngClass]="{ 'has-error': empleadoForm.get('nombre').invalid && empleadoForm.get('nombre').touched }">
+      <label>Nombre: </label>
+      <input
+         type="text"
+         class="form-control"
+         id="nombre"
+         [(ngModel)]="empleado.nombre"
+         name="nombre"
+         required>
+       
+       <div *ngIf="empleadoForm.get('nombre').invalid && empleadoForm.get('nombre').touched" class="text-danger">
+        Nombre es requerido.
+      </div>
+    </div>
+  <div class="form-group">
+    <label>Apellido: </label>
+    <input
+       type="text"
+       class="form-control"
+       id="apellido"
+       [(ngModel)] = "empleado.apellido"
+       name="apellido">
+  </div>
+  <div class="form-group">
+    <label>Email: </label>
+    <input
+       type="email"
+       class="form-control"
+       id="email"
+       [(ngModel)] = "empleado.email"
+       name="email">
+  </div>
+
+  <button class="btn btn-success">Guardar</button>
+
+
+  </form>
+</div>
